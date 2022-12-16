@@ -1,32 +1,29 @@
 theme = "catppuccin_frappe"
 
-# General Helix's configuration
 [editor]
 line-number = "relative"
 cursorline = true
 color-modes = true
 completion-trigger-len = 1
-bufferline = "always"
+bufferline = "multiple"
 idle-timeout = 0
 auto-format = true
+rulers = [80]
 
-# Cursor type
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
-# Helix's statusline
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name", "diagnostics"]
-right = ["selections", "position"]
+right = ["total-line-numbers", "primary-selection-length", "position"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
-# File explorer configuration
 [editor.file-picker]
 hidden = false
 parents = false
@@ -41,24 +38,22 @@ newline = "␤"
 
 [editor.indent-guides]
 render = false
-character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+character = "▏"
 skip-levels = 1
 
-# LSP Server configuration
 [editor.lsp]
 display-messages = true
 auto-signature-help = true
 display-signature-help-docs = true
 
-# Remapping some Keymaps
 [keys.normal]
-',' = { w = ":w", q = ":q" }
+',' = { w = ":w", q = ":q", f = ":fmt", c = ":bc", n = ":new" }
 C-h = "move_prev_word_end"
 C-l = "move_next_word_start"
 "tab" = ":buffer-next"
 S-tab = ":buffer-previous"
 
 [keys.insert]
-j = { k = "normal_mode" }       # Maps `jk` to exit insert mode
+j = { k = "normal_mode" }
 C-left = "move_prev_word_start"
 C-right = "move_next_word_end"

@@ -1,0 +1,3 @@
+[[language]]
+name = "lua"
+indent = { tab-width = 3, unit = "   " } # lua-rocks style guide
