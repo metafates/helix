@@ -6,4 +6,17 @@ indent = { tab-width = 3, unit = "   " } # lua-rocks style guide
 # See
 # github.com/helix-editor/helix/issues/5174
 name = "toml"
-language-server = { command = ""}
+language-server = { command = "" }
+
+[[language]]
+name = "fennel"
+scope = "source.fnl"
+injection-regex = "(fennel|fnl)"
+file-types = ["fnl"]
+roots = [".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"]
+comment-token = ";"
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "fennel"
+source = { git = "https://github.com/TravonteD/tree-sitter-fennel", rev = "517195970428aacca60891b050aa53eabf4ba78d" }
