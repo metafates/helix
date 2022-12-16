@@ -1,3 +1,9 @@
 [[language]]
 name = "lua"
 indent = { tab-width = 3, unit = "   " } # lua-rocks style guide
+
+[[language]]
+# See
+# github.com/helix-editor/helix/issues/5174
+name = "toml"
+language-server = { command = ""}
