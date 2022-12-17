@@ -3,6 +3,10 @@ name = "lua"
 indent = { tab-width = 3, unit = "   " } # lua-rocks style guide
 
 [[language]]
+name = "json"
+indent = { tab-width = 4, unit = "   " }
+
+[[language]]
 # See
 # github.com/helix-editor/helix/issues/5174
 name = "toml"
@@ -16,6 +20,7 @@ file-types = ["fnl"]
 roots = [".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"]
 comment-token = ";"
 indent = { tab-width = 4, unit = "    " }
+language-server = { command = "fennel-language-server", args = ["lsp", "stdio"] }
 
 [[grammar]]
 name = "fennel"
