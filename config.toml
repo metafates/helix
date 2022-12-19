@@ -47,7 +47,7 @@ auto-signature-help = true
 display-signature-help-docs = true
 
 [keys.normal]
-',' = { w = ":w", q = ":q", f = ":fmt", c = ":bc", n = ":new" }
+',' = { w = ":w", q = ":q", f = ":fmt", c = ":bc", n = ":new", v = ":vsplit" }
 C-h = "move_prev_word_end"
 C-l = "move_next_word_start"
 "tab" = ":buffer-next"
