@@ -1,0 +1,4 @@
+inherits = "default"
+
+
+"diagnostic.error" = { fg = "errorfg", bg = "errorbg", underline = { style = "curl", color = "red" } }

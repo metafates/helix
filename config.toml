@@ -1,4 +1,7 @@
 theme = "catppuccin_frappe"
+#theme = "my-theme"
+#theme = "base16_transparent"
+#theme = "rose_pine_moon"
 
 [editor]
 line-number = "relative"
@@ -7,6 +10,7 @@ color-modes = true
 completion-trigger-len = 1
 bufferline = "multiple"
 idle-timeout = 0
+idle-save = false
 auto-format = true
 rulers = [80]
 
@@ -20,17 +24,13 @@ left = ["mode", "spinner"]
 center = ["file-name", "diagnostics"]
 right = ["total-line-numbers", "primary-selection-length", "position"]
 separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
 
-[editor.file-picker]
-hidden = false
-parents = false
+[editor.statusline.mode]
+normal = "N"
+insert = "I"
+select = "S"
 
 [editor.whitespace.render]
-space = "none"
-tab = "none"
 newline = "all"
 
 [editor.whitespace.characters]
@@ -47,13 +47,27 @@ auto-signature-help = true
 display-signature-help-docs = true
 
 [keys.normal]
-',' = { w = ":w", q = ":q", f = ":fmt", c = ":bc", n = ":new", v = ":vsplit" }
+',' = { w = [
+  ":format",
+  ":write",
+], a = { t = ":set idle-save true", f = ":set idle-save false" }, W = ":write", q = ":q", f = ":format", c = ":bc", n = ":new", v = ":vsplit", "," = "keep_primary_selection" }
 C-h = "move_prev_word_end"
 C-l = "move_next_word_start"
 "tab" = ":buffer-next"
 S-tab = ":buffer-previous"
+G = "goto_file_end"
+# D = ["goto_first_nonwhitespace", "extend_to_line_end", "change_selection"]
+D = ["extend_to_line_end", "change_selection"]
+"0" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
 
 [keys.insert]
 j = { k = "normal_mode" }
-C-left = "move_prev_word_start"
-C-right = "move_next_word_end"
+
+# Simulate normal mode movements with in insert move with CTRL
+C-b = "move_prev_word_start"
+C-e = "move_next_word_end"
+C-h = "move_char_left"
+C-l = "move_char_right"
+C-j = "move_line_down"
+C-k = "move_line_up"

@@ -1,16 +1,10 @@
 [[language]]
 name = "lua"
-indent = { tab-width = 3, unit = "   " } # lua-rocks style guide
+indent = { tab-width = 3, unit = "   " }
 
 [[language]]
 name = "json"
 indent = { tab-width = 4, unit = "   " }
-
-[[language]]
-# See
-# github.com/helix-editor/helix/issues/5174
-name = "toml"
-language-server = { command = "" }
 
 [[language]]
 name = "fennel"
@@ -18,10 +12,46 @@ scope = "source.fnl"
 injection-regex = "(fennel|fnl)"
 file-types = ["fnl"]
 roots = [".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"]
-comment-token = ";"
-indent = { tab-width = 4, unit = "    " }
-language-server = { command = "fennel-language-server", args = ["lsp", "stdio"] }
+comment-token = ";;"
+indent = { tab-width = 2, unit = "  " }
+language-server = { command = "fennel-language-server", args = [
+  "lsp",
+  "stdio",
+] }
+formatter = { command = "fnlfmt", args = ["-"] }
 
 [[grammar]]
 name = "fennel"
 source = { git = "https://github.com/TravonteD/tree-sitter-fennel", rev = "517195970428aacca60891b050aa53eabf4ba78d" }
+
+[[language]]
+name = "c"
+scope = "source.c"
+injection-regex = "c"
+file-types = ["c"]
+roots = []
+comment-token = "//"
+language-server = { command = "clangd" }
+indent = { tab-width = 4, unit = "    " }
+
+# https://suckless.org/coding_style/
+formatter = { command = "gindent", args = [
+  # "-brf",
+  "-brs",
+  "-nprs",
+  "-npcs",
+  "-i8",
+  "-fc1",
+  "-br",
+  "-nsaf",
+  "-nsai",
+  "-nsaw",
+  "-ncs",
+  "-nfca",
+  "-il0",
+  "-ce",
+  "-nss",
+  "-c0",
+  "-cd0",
+  "-ut",
+] }
