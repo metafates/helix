@@ -1,10 +1,25 @@
 [[language]]
+name = "toml"
+language-server = { command = "" }
+
+[[language]]
 name = "lua"
 indent = { tab-width = 3, unit = "   " }
 
 [[language]]
 name = "json"
 indent = { tab-width = 4, unit = "   " }
+
+[[language]]
+name = "python"
+
+[language.formatter]
+command = "black"
+args = [
+"-", # stdin
+"--quiet",
+"--line-length=79",
+]
 
 [[language]]
 name = "fennel"
@@ -23,6 +38,15 @@ formatter = { command = "fnlfmt", args = ["-"] }
 [[grammar]]
 name = "fennel"
 source = { git = "https://github.com/TravonteD/tree-sitter-fennel", rev = "517195970428aacca60891b050aa53eabf4ba78d" }
+
+[[language]]
+name = "sql"
+scope = "source.sql"
+file-types = ["sql"]
+roots = []
+comment-token = "--"
+indent = { tab-width = 4, unit = "    " }
+injection-regex = "sql"
 
 [[language]]
 name = "c"

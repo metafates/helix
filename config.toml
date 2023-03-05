@@ -1,4 +1,5 @@
-theme = "catppuccin_frappe"
+# theme = "catppuccin_mocha"
+theme = "gruvbox"
 #theme = "my-theme"
 #theme = "base16_transparent"
 #theme = "rose_pine_moon"
@@ -10,7 +11,6 @@ color-modes = true
 completion-trigger-len = 1
 bufferline = "multiple"
 idle-timeout = 0
-idle-save = false
 auto-format = true
 rulers = [80]
 
