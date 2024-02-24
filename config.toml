@@ -1,0 +1,79 @@
+theme = "gruvbox"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor]
+line-number = "relative"
+color-modes = true
+completion-trigger-len = 1
+bufferline = "always"
+idle-timeout = 0
+auto-format = true
+rulers = [ 80 ]
+
+[editor.statusline]
+left = [ "mode", "read-only-indicator", "spacer", "spinner", "spacer", "version-control", "workspace-diagnostics", "spacer" ]
+center = [ "file-modification-indicator", "file-name", "diagnostics" ]
+right = [ "file-type", "file-line-ending", "total-line-numbers", "separator", "spacer", "primary-selection-length", "position", "position-percentage", "spacer" ]
+separator = "lines" # this is a hack used as ["total-line-numbers", "separator"]. For example `82 lines`
+
+[editor.statusline.mode]
+normal = "NOR"
+insert = "INS"
+select = "SEL"
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.whitespace.render]
+newline = "all"
+
+[editor.whitespace.characters]
+newline = "␤"
+tab = "→"
+space = "·"
+tabpad = "·"
+
+[editor.indent-guides]
+render = true
+character = "▏"
+skip-levels = 1
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.normal]
+tab = ":buffer-next"
+S-tab = ":buffer-previous"
+
+L = ":buffer-next"
+H = ":buffer-previous"
+
+C-r = ":toggle soft-wrap.enable"
+C-h = ":toggle lsp.display-inlay-hints"
+C-l = ":toggle cursorcolumn"
+C-n = ":new"
+C-i = ":character-info"
+A-w = ":buffer-close-others"
+D = [ "extend_to_line_end", "delete_selection" ]
+ret = [ "move_line_down", "goto_first_nonwhitespace" ]
+"$" = "goto_line_end"
+"0" = "goto_first_nonwhitespace"
+
+[keys.normal.","]
+w = ":write-all"
+f = ":format"
+q = ":quit"
+Q = ":quit!"
+c = ":buffer-close"
+C = ":buffer-close!"
+x = ":write-quit-all"
+"," = "keep_primary_selection"
+
+[keys.select]
+u = "switch_to_lowercase"
+U = "switch_to_uppercase"
