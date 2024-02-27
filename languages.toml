@@ -6,7 +6,7 @@ command = "pyright-langserver"
 args = [ "--stdio" ]
 
 [language-server.gopls.config]
-buildFlags = [ "-tags", "mage" ]
+buildFlags = [ "-tags", "mage,integration" ]
 gofumpt = true
 semanticTokens = true
 usePlaceholders = true
