@@ -12,12 +12,32 @@ completion-trigger-len = 1
 bufferline = "always"
 idle-timeout = 0
 auto-format = true
-rulers = [ 80 ]
+rulers = [80]
 
 [editor.statusline]
-left = [ "mode", "read-only-indicator", "spacer", "spinner", "spacer", "version-control", "workspace-diagnostics", "spacer" ]
-center = [ "file-modification-indicator", "file-name", "diagnostics" ]
-right = [ "file-type", "file-line-ending", "total-line-numbers", "separator", "spacer", "primary-selection-length", "position", "position-percentage", "spacer" ]
+left = [
+  "mode",
+  "read-only-indicator",
+  "spacer",
+  "spinner",
+  "spacer",
+  "version-control",
+  "workspace-diagnostics",
+  "spacer",
+]
+# center = ["file-modification-indicator", "file-name", "diagnostics"]
+center = ["diagnostics"]
+right = [
+  "file-type",
+  "file-line-ending",
+  "total-line-numbers",
+  "separator",
+  "spacer",
+  "primary-selection-length",
+  "position",
+  "position-percentage",
+  "spacer",
+]
 separator = "lines" # this is a hack used as ["total-line-numbers", "separator"]. For example `82 lines`
 
 [editor.statusline.mode]
@@ -33,7 +53,8 @@ display-messages = true
 newline = "all"
 
 [editor.whitespace.characters]
-newline = "␤"
+# newline = "␤"
+newline = "·"
 tab = "→"
 space = "·"
 tabpad = "·"
@@ -59,8 +80,8 @@ C-l = ":toggle cursorcolumn"
 C-n = ":new"
 C-i = ":character-info"
 A-w = ":buffer-close-others"
-D = [ "extend_to_line_end", "delete_selection" ]
-ret = [ "move_line_down", "goto_first_nonwhitespace" ]
+D = ["extend_to_line_end", "delete_selection"]
+ret = ["move_line_down", "goto_first_nonwhitespace"]
 "$" = "goto_line_end"
 "0" = "goto_first_nonwhitespace"
 
