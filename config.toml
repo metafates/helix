@@ -6,6 +6,7 @@ normal = "block"
 select = "underline"
 
 [editor]
+popup-border = "none"
 line-number = "relative"
 color-modes = true
 completion-trigger-len = 1
@@ -17,8 +18,6 @@ rulers = [80]
 [editor.statusline]
 left = [
   "mode",
-  "read-only-indicator",
-  "spacer",
   "spinner",
   "spacer",
   "version-control",
@@ -26,19 +25,14 @@ left = [
   "spacer",
 ]
 # center = ["file-modification-indicator", "file-name", "diagnostics"]
-center = ["diagnostics"]
+center = ["diagnostics", "file-name"]
 right = [
-  "file-type",
-  "file-line-ending",
   "total-line-numbers",
-  "separator",
-  "spacer",
   "primary-selection-length",
   "position",
   "position-percentage",
   "spacer",
 ]
-separator = "lines" # this is a hack used as ["total-line-numbers", "separator"]. For example `82 lines`
 
 [editor.statusline.mode]
 normal = "NOR"
@@ -71,6 +65,11 @@ j = { k = "normal_mode" }
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
 
+f = "goto_word"
+
+x = "select_line_below"
+X = "select_line_above"
+
 L = ":buffer-next"
 H = ":buffer-previous"
 
@@ -85,6 +84,9 @@ ret = ["move_line_down", "goto_first_nonwhitespace"]
 "$" = "goto_line_end"
 "0" = "goto_first_nonwhitespace"
 
+[keys.normal." "]
+F = "file_picker_in_current_buffer_directory"
+
 [keys.normal.","]
 w = ":write-all"
 f = ":format"
@@ -92,6 +94,8 @@ q = ":quit"
 Q = ":quit!"
 c = ":buffer-close"
 C = ":buffer-close!"
+o = ":buffer-close-others"
+O = ":buffer-close-others!"
 x = ":write-quit-all"
 "," = "keep_primary_selection"
 
