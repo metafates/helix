@@ -28,7 +28,6 @@ rangeVariableTypes = true
 
 [language-server.gopls.config.analyses]
 unreachable = true
-# https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
 unusedparams = true
 nilness = true
 shadow = true
@@ -65,6 +64,10 @@ formatter = { command = "prettier", args = [
 ] }
 
 [[language]]
+name = "markdown.inline"
+indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
 name = "json"
 auto-format = true
 formatter = { command = "prettier", args = [
@@ -73,21 +76,6 @@ formatter = { command = "prettier", args = [
   "--tab-width",
   "4",
 ] }
-
-[[language]]
-name = "vue"
-file-types = ["vue"]
-language-servers = ["vue"]
-scope = "text.html.vue"
-roots = ["package.json"]
-injection-regex = "vue"
-
-# [language.config.typescript] # this part must be hardcoded sadly, if anyone figures out how to provide a relative path let me know
-# serverPath = "/home/niedzwiedz/Pieprzyk/prometeusz/prometeusz-front/node_modules/typescript/lib/tsserverlibrary.js"
-
-[language-server.vue]
-command = "vue-language-server"
-args = ["--stdio"]
 
 [[language]]
 name = "yaml"
